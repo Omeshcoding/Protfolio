@@ -89,9 +89,7 @@
     background: var(--secondary-color);
     
     svg{
-        position:absolute;
         width: 70%;
-        right: 5px;
         height: 70%;
         color: var(--white-color);
     }
@@ -134,7 +132,37 @@
             display:flex;
             justify-content:flex-start;
             flex-direction: column;
+            
+            li {
+                margin: 1rem;
 
+                a {
+                        color: var(--gray-color);
+                        text-decoration: none;
+                        flex-direction: column;
+                
+                        text-transform: uppercase;
+                        font-weight: 500;
+                
+                        transition: all 0.3s ease-in-out;
+                
+                        &:hover {
+                            color: var(--secondary-color);
+                        }
+                    }
+                
+                    &:hover {
+                    color: var(--gray-color)
+
+                }
+            }
+ 
+        }
+        @media screen and (min-width:900px){
+            display:none;
         }
     }
+           @media screen and (min-width:900px) {
+               display: none;
+           }
 }
