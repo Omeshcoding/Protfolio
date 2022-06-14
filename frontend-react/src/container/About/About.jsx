@@ -12,6 +12,12 @@ const abouts = [
 ]
 
 const About = () => {
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+   const query = '*[_type] == "abouts"]';
+  }, [])
+  
   return (
     <>
       <h2 className='head-text'>
