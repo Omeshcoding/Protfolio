@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion} from 'framer-motion'
-import './About.scss';
 
+import './About.scss';
 import { images } from '../../constants'
+import { urlFor ,client} from '../../client'
 
 const abouts = [
   { title: 'Web Development', description: 'I am a good web developer', imgUrl: images.about01 },
@@ -15,7 +16,9 @@ const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-   const query = '*[_type] == "abouts"]';
+    const query = '*[_type] == "abouts"]';
+    
+    client.fetch(query).then((data) => setAbouts(data))
   }, [])
   
   return (
