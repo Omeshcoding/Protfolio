@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.scss';
-import { AppWrap } from '../../wrapper';
+import { AppWrap , MotionWrap } from '../../wrapper';
 import { urlFor, client} from '../../client';
 
 
@@ -44,7 +44,7 @@ const Skills = () => {
               className="app__skills-item app__flex"
               key={skill.name}
               >
-              <div className='app__flex' style={{ background: skill.bgcolor }}>
+              <div className='app__flex' style={{ backgroundColor: skill.Bgcolor }}>
               <img src={urlFor(skill.icon)} alt ='skills logo' />              
               </div>
               <p className='p-text'>{skill.name }</p>
@@ -87,4 +87,8 @@ const Skills = () => {
   )
 }
 
-export default AppWrap(Skills ,'skills')
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  'skills',
+  "app__whitebg"
+);
