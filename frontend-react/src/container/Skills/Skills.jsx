@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.scss';
-import ReacTooltip from 'react-tooltip';
 import { AppWrap } from '../../wrapper';
 import { urlFor, client} from '../../client';
 
@@ -11,12 +10,14 @@ const Skills = () => {
   // State hooks
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
-
+  
 
   // Effects hook
   useEffect(() => {
     const query = '*[_type == "experiences"]';
     const skillsQuery = '*[_type == "skills"]';
+
+
 
     client.fetch(query)
       .then((data) => {
@@ -44,7 +45,7 @@ const Skills = () => {
               key={skill.name}
               >
               <div className='app__flex' style={{ background: skill.bgcolor }}>
-              <img src={urlFor(skill.icon)}/>              
+              <img src={urlFor(skill.icon)} alt ='skills logo' />              
               </div>
               <p className='p-text'>{skill.name }</p>
               </motion.div>
@@ -62,25 +63,20 @@ const Skills = () => {
                   <motion.div className='app__skills-exp-works'>
                     {experience.works.map((work) => (
                     
-                               <>
-                                       <motion.div
-                                       whileInView={{ opacity: [0, 1] }}
-                                       transition={{ duration: 0.5 }}
-                                       className="app__skills-exp-work"
-                                       data-tip   
-                                       data-for = {work.name}    
+           <>
+         <motion.div
+                 whileInView={{ opacity: [0, 1] }}
+                 transition={{ duration: 0.5 }}
+                 className="app__skills-exp-work"
+                          data-tip
+                        data-for={work.name}    
                                        key={work.name}
                                          >
-                                           <h4 className='bold-text'>{ work.name }</h4>
-                                           <p className='p-text'>{ work.company }</p>
-                                         </motion.div>
-                                       {/*   <ReacTooltip
-                                      //      id={work.name}
-                                      //      effect="solid"
-                                      //      arrowColor='#fff'
-                                      //      className= 'skills-tooltip'
-                                      //       </ReacTooltip>*/}
-                      </>
+                     <h4 className='bold-text'>{ work.name }</h4>
+                     <p className='p-text'>{ work.company }</p>
+                 </motion.div>
+           
+                   </>
                   ))}
                   </motion.div>
                 </motion.div>
