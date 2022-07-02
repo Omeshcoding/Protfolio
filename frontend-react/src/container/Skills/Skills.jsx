@@ -44,7 +44,7 @@ const Skills = () => {
               className="app__skills-item app__flex"
               key={skill.name}
               >
-              <div className='app__flex' style={{ backgroundColor: skill.Bgcolor }}>
+              <div className='app__flex' style={{ backgroundColor: skill.bgcolor }}>
               <img src={urlFor(skill.icon)} alt ='skills logo' />              
               </div>
               <p className='p-text'>{skill.name }</p>
